@@ -57,10 +57,10 @@
     ></div>
     <div class="fixed inset-0 z-0 bg-[linear-gradient(180deg,_rgba(2,6,23,0.72),_rgba(2,6,23,0.58))]" aria-hidden="true"></div>
 
-    <div class="relative z-10 min-h-screen pb-20 md:pb-0">
-      <header class="sticky top-0 z-50 border-b border-white/10 bg-blue-950/95 backdrop-blur">
-        <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 lg:px-8">
-          <a href="#" class="flex min-w-0 flex-1 items-center gap-3 py-1 pr-2">
+    <div id="top" class="relative z-10 min-h-screen pb-20 md:pb-0">
+      <header class="sticky top-0 z-50 border-b border-white/10 bg-[rgba(23,37,84,0.95)] backdrop-blur">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-4 sm:px-6 lg:px-8">
+          <a href="#top" class="flex min-w-0 flex-1 items-center gap-2 py-1 pr-2 sm:gap-3">
             <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/95 p-2 shadow-soft sm:h-14 sm:w-14">
               <img
                 src="./assets/logo_colors.svg"
@@ -69,12 +69,26 @@
               />
             </span>
             <span class="min-w-0">
-              <span class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-red-500 sm:text-sm sm:tracking-[0.3em]">HVAC Experts</span>
-              <span class="block text-base font-extrabold leading-tight text-white sm:text-2xl">
+              <span class="hidden text-[10px] font-semibold uppercase tracking-[0.22em] text-red-500 sm:block sm:text-sm sm:tracking-[0.3em]">HVAC Experts</span>
+              <span class="block text-sm font-extrabold leading-tight text-white sm:text-2xl">
                 Scissortail Comfort Solutions LLC
               </span>
             </span>
           </a>
+          <div class="hidden items-center gap-2 md:flex">
+            <a
+              href="#about"
+              class="inline-flex min-h-11 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white/90 transition hover:bg-white/10 hover:text-white"
+            >
+              About Us
+            </a>
+            <a
+              href="#services"
+              class="inline-flex min-h-11 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white/90 transition hover:bg-white/10 hover:text-white"
+            >
+              Services
+            </a>
+          </div>
           <div class="flex items-center gap-3 sm:gap-4">
             <a
               href="tel:+14056659110"
@@ -86,13 +100,89 @@
             </a>
             <a
               href="#estimate"
-              class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-red-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-red-500 sm:px-5 sm:py-2.5"
+              class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-red-600 px-3 py-3 text-sm font-bold text-white transition hover:bg-red-500 sm:px-5 sm:py-2.5"
             >
-              Free Estimate
+              <span class="text-white sm:hidden">Estimate</span>
+              <span class="hidden text-white sm:inline">Free Estimate</span>
             </a>
+            <button
+              type="button"
+              id="mobile-menu-toggle"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/15 md:hidden"
+              aria-label="Open mobile menu"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-bars text-base"></i>
+            </button>
           </div>
         </div>
       </header>
+
+      <div id="mobile-menu" class="fixed inset-0 z-40 hidden md:hidden" aria-hidden="true">
+        <button
+          type="button"
+          id="mobile-menu-backdrop"
+          class="absolute inset-0 bg-slate-950/45 opacity-0 transition duration-300"
+          aria-label="Close mobile menu"
+        ></button>
+        <aside
+          id="mobile-menu-panel"
+          class="absolute inset-y-0 left-0 flex w-[86vw] max-w-sm -translate-x-full flex-col overflow-y-auto bg-[linear-gradient(180deg,rgba(15,23,42,0.98),rgba(30,41,59,0.96))] text-white shadow-[18px_0_50px_rgba(15,23,42,0.4)] transition duration-300 ease-out"
+          aria-label="Mobile navigation"
+        >
+          <div class="flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-5 py-4">
+            <span class="text-xs font-bold uppercase tracking-[0.28em] text-red-400">Menu</span>
+            <button
+              type="button"
+              id="mobile-menu-close"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-blue-100 transition hover:text-white"
+              aria-label="Close mobile menu"
+            >
+              Close
+              <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+          </div>
+
+          <nav class="flex-1 px-0 py-2">
+            <a href="#top" class="flex items-center justify-between border-b border-white/10 px-6 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-red-400 transition hover:bg-white/[0.05] hover:text-red-300">
+              <span>Home</span>
+              <i class="fa-solid fa-chevron-right text-sm text-red-400"></i>
+            </a>
+            <a href="#about" class="flex items-center justify-between border-b border-white/10 px-6 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-blue-50 transition hover:bg-white/[0.05] hover:text-white">
+              <span>About Us</span>
+              <i class="fa-solid fa-chevron-right text-sm text-red-400"></i>
+            </a>
+            <a href="#services" class="flex items-center justify-between border-b border-white/10 px-6 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-blue-50 transition hover:bg-white/[0.05] hover:text-white">
+              <span>HVAC Services</span>
+              <i class="fa-solid fa-chevron-right text-sm text-red-400"></i>
+            </a>
+            <a href="#estimate" class="flex items-center justify-between border-b border-white/10 px-6 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-blue-50 transition hover:bg-white/[0.05] hover:text-white">
+              <span>Free Estimate</span>
+              <i class="fa-solid fa-chevron-right text-sm text-red-400"></i>
+            </a>
+            <a href="tel:+14056659110" class="flex items-center justify-between border-b border-white/10 px-6 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-blue-50 transition hover:bg-white/[0.05] hover:text-white">
+              <span>Emergency Service</span>
+              <i class="fa-solid fa-chevron-right text-sm text-red-400"></i>
+            </a>
+          </nav>
+
+          <div class="space-y-4 px-6 py-6">
+            <a
+              href="mailto:terry@scissortailsolutions.com"
+              class="flex min-h-12 items-center justify-center rounded-lg bg-red-600 px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white shadow-soft transition hover:bg-red-500"
+            >
+              Contact Us
+            </a>
+            <a
+              href="tel:+14056659110"
+              class="flex min-h-12 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white/[0.1]"
+            >
+              Call Us Today
+            </a>
+          </div>
+        </aside>
+      </div>
 
       <main>
         <section class="relative isolate overflow-hidden">
@@ -108,7 +198,7 @@
           ></div>
           <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:px-8 lg:py-24">
             <div class="max-w-3xl">
-              <span class="inline-flex max-w-full items-center rounded-full border border-white/20 bg-slate-950/22 px-4 py-2 text-sm font-semibold leading-6 text-white">
+              <span class="inline-flex max-w-full flex-wrap items-center rounded-full border border-white/20 bg-slate-950/22 px-4 py-2 text-sm font-semibold leading-6 text-white">
                 Trusted HVAC Service for Oklahoma Homes &amp; Businesses
               </span>
               <h1 class="mt-6 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
@@ -120,7 +210,7 @@
               <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="tel:+14056659110"
-                  class="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-4 text-base font-bold text-white shadow-soft transition hover:bg-red-500"
+                  class="inline-flex items-center justify-center rounded-full bg-red-600 px-5 py-4 text-center text-base font-bold text-white shadow-soft transition hover:bg-red-500"
                 >
                   <i class="fa-solid fa-phone-volume mr-3 text-sm"></i>
                   Call Now for 24/7 Emergency Service
@@ -148,58 +238,150 @@
               </div>
             </div>
 
-            <div class="scroll-mt-28 rounded-3xl border border-white/25 bg-white/96 p-6 shadow-soft backdrop-blur-md sm:p-8" id="estimate">
+            <div class="scroll-mt-28 rounded-3xl border border-white/30 bg-[linear-gradient(180deg,rgba(8,47,73,0.92),rgba(15,23,42,0.88))] p-6 shadow-soft backdrop-blur-md sm:p-8" id="estimate">
               <div class="flex items-start gap-3 sm:items-center">
                 <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50 text-red-600">
-                  <i class="fa-solid fa-temperature-arrow-up text-xl"></i>
+                  <i class="fa-solid fa-envelope-open-text text-xl"></i>
                 </div>
                 <div class="min-w-0">
-                  <p class="text-xs font-semibold uppercase tracking-[0.18em] text-red-600 sm:text-sm sm:tracking-[0.25em]">Free Estimate</p>
-                  <h2 class="text-2xl font-extrabold text-blue-950">Fast help starts here</h2>
+                  <p class="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 sm:text-sm sm:tracking-[0.25em]">Free Estimate</p>
+                  <h2 class="text-2xl font-extrabold text-white">Contact Scissortail Comfort Solutions today</h2>
                 </div>
               </div>
-              <p class="mt-4 text-base font-medium leading-7 text-slate-800">
-                Reach out for installation, repair, maintenance, or system upgrades. We make it easy to get dependable HVAC support.
+              <p class="mt-4 text-base font-medium leading-7 text-blue-50">
+                Tell us what you need and we will prepare an email with your request for the company.
               </p>
-              <div class="mt-6 space-y-4">
+
+              <form id="estimate-form" class="mt-6 space-y-4">
+                <div class="grid gap-4">
+                  <label class="block">
+                    <span class="sr-only">First Name</span>
+                    <input
+                      type="text"
+                      name="firstName"
+                      required
+                      autocomplete="given-name"
+                      placeholder="First Name"
+                      class="min-h-14 w-full rounded-none border border-slate-200 bg-white px-4 text-base font-medium text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-red-400 focus:ring-4 focus:ring-red-500/20"
+                    />
+                  </label>
+
+                  <label class="block">
+                    <span class="sr-only">Last Name</span>
+                    <input
+                      type="text"
+                      name="lastName"
+                      required
+                      autocomplete="family-name"
+                      placeholder="Last Name"
+                      class="min-h-14 w-full rounded-none border border-slate-200 bg-white px-4 text-base font-medium text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-red-400 focus:ring-4 focus:ring-red-500/20"
+                    />
+                  </label>
+
+                  <label class="block">
+                    <span class="sr-only">Phone</span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      autocomplete="tel"
+                      placeholder="Phone"
+                      class="min-h-14 w-full rounded-none border border-slate-200 bg-white px-4 text-base font-medium text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-red-400 focus:ring-4 focus:ring-red-500/20"
+                    />
+                  </label>
+
+                  <label class="block">
+                    <span class="sr-only">Email</span>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      autocomplete="email"
+                      placeholder="Email"
+                      class="min-h-14 w-full rounded-none border border-slate-200 bg-white px-4 text-base font-medium text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-red-400 focus:ring-4 focus:ring-red-500/20"
+                    />
+                  </label>
+
+                  <label class="block">
+                    <span class="sr-only">Address</span>
+                    <input
+                      type="text"
+                      name="address"
+                      autocomplete="street-address"
+                      placeholder="Address"
+                      class="min-h-14 w-full rounded-none border border-slate-200 bg-white px-4 text-base font-medium text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-red-400 focus:ring-4 focus:ring-red-500/20"
+                    />
+                  </label>
+
+                  <label class="block">
+                    <span class="sr-only">Are you a new customer?</span>
+                    <select
+                      name="newCustomer"
+                      required
+                      class="min-h-14 w-full rounded-none border border-slate-200 bg-white px-4 text-base font-medium text-slate-900 outline-none transition focus:border-red-400 focus:ring-4 focus:ring-red-500/20"
+                    >
+                      <option value="" selected disabled>Are you a new customer?</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                  </label>
+
+                  <label class="block">
+                    <span class="sr-only">How can we help you?</span>
+                    <textarea
+                      name="message"
+                      required
+                      rows="5"
+                      placeholder="How can we help you?"
+                      class="w-full rounded-none border border-slate-200 bg-white px-4 py-4 text-base font-medium text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-red-400 focus:ring-4 focus:ring-red-500/20"
+                    ></textarea>
+                  </label>
+                </div>
+
+                <p class="text-sm leading-6 text-blue-100/85">
+                  By submitting, your email app will open with this request pre-filled and addressed to the company.
+                </p>
+
+                <div class="space-y-3">
+                  <button
+                    type="submit"
+                    class="inline-flex min-h-12 w-full items-center justify-center rounded-sm bg-red-600 px-5 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-red-500"
+                  >
+                    Send Request
+                  </button>
+                  <p id="estimate-form-status" class="hidden rounded-sm border border-blue-200/30 bg-white/10 px-4 py-3 text-sm font-medium text-blue-50"></p>
+                </div>
+              </form>
+
+              <div class="mt-6 grid gap-3">
                 <a
                   href="tel:+14056659110"
-                  class="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 px-4 py-4 transition hover:border-red-300 hover:bg-red-50"
+                  class="flex items-center justify-between gap-3 rounded-2xl border border-white/20 bg-white/[0.05] px-4 py-4 transition hover:border-red-300 hover:bg-white/[0.08]"
                 >
                   <span class="min-w-0 flex-1">
-                    <span class="block text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 sm:tracking-[0.25em]">Phone</span>
-                    <span class="text-lg font-bold text-slate-900">+1 (405) 665 9110</span>
+                    <span class="block text-xs font-semibold uppercase tracking-[0.18em] text-blue-200 sm:tracking-[0.25em]">Phone</span>
+                    <span class="text-lg font-bold text-white">+1 (405) 665 9110</span>
                   </span>
-                  <i class="fa-solid fa-arrow-right shrink-0 text-red-600"></i>
+                  <i class="fa-solid fa-arrow-right shrink-0 text-red-400"></i>
                 </a>
                 <a
                   href="mailto:terry@scissortailsolutions.com"
-                  class="flex items-start justify-between gap-3 rounded-2xl border border-slate-200 px-4 py-4 transition hover:border-blue-300 hover:bg-blue-50 sm:items-center"
+                  class="flex items-start justify-between gap-3 rounded-2xl border border-white/20 bg-white/[0.05] px-4 py-4 transition hover:border-blue-300 hover:bg-white/[0.08] sm:items-center"
                 >
                   <span class="min-w-0 flex-1">
-                    <span class="block text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 sm:tracking-[0.25em]">Primary Email</span>
-                    <span class="block break-all text-sm font-bold text-slate-900 sm:text-base sm:break-normal">terry@scissortailsolutions.com</span>
+                    <span class="block text-xs font-semibold uppercase tracking-[0.18em] text-blue-200 sm:tracking-[0.25em]">Primary Email</span>
+                    <span class="block text-sm font-bold leading-tight text-white sm:text-base">terry@scissortailsolutions.com</span>
                   </span>
-                  <i class="fa-solid fa-arrow-right mt-1 shrink-0 text-blue-900 sm:mt-0"></i>
-                </a>
-                <a
-                  href="mailto:scissortailcomfortsolutions@gmail.com"
-                  class="flex items-start justify-between gap-3 rounded-2xl border border-slate-200 px-4 py-4 transition hover:border-blue-300 hover:bg-blue-50 sm:items-center"
-                >
-                  <span class="min-w-0 flex-1">
-                    <span class="block text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 sm:tracking-[0.25em]">Secondary Email</span>
-                    <span class="block break-all text-sm font-bold text-slate-900 sm:text-base sm:break-normal">scissortailcomfortsolutions@gmail.com</span>
-                  </span>
-                  <i class="fa-solid fa-arrow-right mt-1 shrink-0 text-blue-900 sm:mt-0"></i>
+                  <i class="fa-solid fa-arrow-right mt-1 shrink-0 text-blue-300 sm:mt-0"></i>
                 </a>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="border-y border-white/20 bg-white/90 backdrop-blur-md">
+        <section class="border-y border-white/20 bg-[rgba(255,255,255,0.9)] backdrop-blur-md">
           <div class="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:grid-cols-3 sm:px-6 lg:px-8">
-            <div class="flex items-center gap-4 rounded-2xl border border-white/70 bg-white/85 px-5 py-4 backdrop-blur-sm">
+            <div class="flex items-center gap-4 rounded-2xl border border-white/70 bg-[rgba(255,255,255,0.85)] px-5 py-4 backdrop-blur-sm">
               <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-900 text-white">
                 <i class="fa-solid fa-shield-halved text-lg"></i>
               </div>
@@ -208,7 +390,7 @@
                 <p class="text-sm font-medium text-slate-800">Reliable service backed by professional standards.</p>
               </div>
             </div>
-            <div class="flex items-center gap-4 rounded-2xl border border-white/70 bg-white/85 px-5 py-4 backdrop-blur-sm">
+            <div class="flex items-center gap-4 rounded-2xl border border-white/70 bg-[rgba(255,255,255,0.85)] px-5 py-4 backdrop-blur-sm">
               <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 text-white">
                 <i class="fa-solid fa-file-invoice-dollar text-lg"></i>
               </div>
@@ -217,7 +399,7 @@
                 <p class="text-sm font-medium text-slate-800">Straightforward pricing for your next HVAC project.</p>
               </div>
             </div>
-            <div class="flex items-center gap-4 rounded-2xl border border-white/70 bg-white/85 px-5 py-4 backdrop-blur-sm">
+            <div class="flex items-center gap-4 rounded-2xl border border-white/70 bg-[rgba(255,255,255,0.85)] px-5 py-4 backdrop-blur-sm">
               <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-900 text-white">
                 <i class="fa-solid fa-building text-lg"></i>
               </div>
@@ -229,7 +411,86 @@
           </div>
         </section>
 
-        <section id="services" class="scroll-mt-28 bg-slate-50/92 py-16 backdrop-blur-md sm:py-20">
+        <section id="about" class="scroll-mt-28 bg-[linear-gradient(180deg,rgba(239,246,255,0.96),rgba(255,255,255,0.92))] py-16 backdrop-blur-md sm:py-20">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+              <div>
+                <span class="text-sm font-bold uppercase tracking-[0.3em] text-red-600">About Us</span>
+                <h2 class="mt-3 max-w-4xl text-3xl font-extrabold text-blue-950 sm:text-4xl">
+                  Comfort built on craftsmanship, integrity, and long-term trust
+                </h2>
+                <div class="mt-6 space-y-5 text-lg leading-8 text-slate-800">
+                  <p>
+                    At Scissortail Comfort Solutions, we believe true comfort is more than temperature. It is reliability, efficiency, and peace of mind in every space you live and work in. Proudly serving homeowners and businesses across Oklahoma, our company was built on a foundation of expert craftsmanship, integrity, and long-term client relationships.
+                  </p>
+                  <p>
+                    We are a partnership between a licensed HVAC contractor and a certified journeyman technician, combining advanced technical training with real-world, hands-on experience. That dual expertise allows us to approach every project with precision, from complex system installations to detailed diagnostics and repairs, so every solution is designed to perform at the highest level.
+                  </p>
+                  <p>
+                    Our work reflects a commitment to doing things differently. We do not believe in shortcuts or temporary fixes. We take the time to evaluate each system, understand your needs, and deliver tailored solutions that maximize performance, energy efficiency, and long-term value. Every installation, service call, and maintenance visit is completed with close attention to detail and a standard of quality that sets us apart.
+                  </p>
+                  <p>
+                    As a locally owned and operated company in Oklahoma, we understand the demands of our climate and the importance of dependable indoor comfort year-round. We value the trust our clients place in us, which is why we prioritize clear communication, honest recommendations, and transparent service so you always feel confident in your investment.
+                  </p>
+                  <p>
+                    Whether you are building a new home, upgrading an existing system, or maintaining your current equipment, Scissortail Comfort Solutions is your trusted partner for reliable, high-quality HVAC services in Oklahoma.
+                  </p>
+                </div>
+              </div>
+
+              <div class="grid gap-6">
+                <article class="rounded-3xl border border-blue-100 bg-white/95 p-7 shadow-soft">
+                  <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-900 text-white">
+                    <i class="fa-solid fa-people-group text-2xl"></i>
+                  </div>
+                  <h3 class="mt-6 text-2xl font-extrabold text-blue-950">Built on dual expertise</h3>
+                  <p class="mt-4 text-base leading-7 text-slate-800">
+                    Licensed contractor leadership paired with certified journeyman field experience means every recommendation is technically sound, practical, and built for long-term performance.
+                  </p>
+                </article>
+
+                <article class="rounded-3xl border border-red-100 bg-slate-950 p-7 text-white shadow-soft">
+                  <p class="text-xs font-semibold uppercase tracking-[0.25em] text-red-400">Our Mission</p>
+                  <p class="mt-5 text-2xl font-extrabold leading-tight sm:text-3xl">
+                    Deliver exceptional workmanship, build lasting relationships, and provide comfort you can depend on.
+                  </p>
+                </article>
+
+                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                  <article class="rounded-3xl border border-white/80 bg-[rgba(255,255,255,0.92)] p-5 shadow-sm">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-red-50 text-red-600">
+                      <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="mt-4 text-lg font-extrabold text-blue-950">No shortcuts</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-700">
+                      We solve root causes, not just symptoms.
+                    </p>
+                  </article>
+                  <article class="rounded-3xl border border-white/80 bg-[rgba(255,255,255,0.92)] p-5 shadow-sm">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-900">
+                      <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <h3 class="mt-4 text-lg font-extrabold text-blue-950">Tailored efficiency</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-700">
+                      Systems are matched to your space, goals, and budget.
+                    </p>
+                  </article>
+                  <article class="rounded-3xl border border-white/80 bg-[rgba(255,255,255,0.92)] p-5 shadow-sm">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-red-50 text-red-600">
+                      <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3 class="mt-4 text-lg font-extrabold text-blue-950">Clear communication</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-700">
+                      Honest recommendations and transparent service every time.
+                    </p>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" class="scroll-mt-28 bg-[rgba(248,250,252,0.94)] py-16 backdrop-blur-md sm:py-20">
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl">
               <span class="text-sm font-bold uppercase tracking-[0.3em] text-red-600">Our Services</span>
@@ -242,7 +503,7 @@
             </div>
 
             <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              <article class="rounded-3xl border border-white/80 bg-white/96 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <article class="rounded-3xl border border-white/80 bg-[rgba(255,255,255,0.96)] p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
                 <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-900 text-white">
                   <i class="fa-regular fa-snowflake text-2xl"></i>
                 </div>
@@ -256,7 +517,7 @@
                 </ul>
               </article>
 
-              <article class="rounded-3xl border border-white/80 bg-white/96 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <article class="rounded-3xl border border-white/80 bg-[rgba(255,255,255,0.96)] p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
                 <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-600 text-white">
                   <i class="fa-solid fa-fire-flame-curved text-2xl"></i>
                 </div>
@@ -269,7 +530,7 @@
                 </ul>
               </article>
 
-              <article class="rounded-3xl border border-white/80 bg-white/96 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <article class="rounded-3xl border border-white/80 bg-[rgba(255,255,255,0.96)] p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
                 <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-900 text-white">
                   <i class="fa-solid fa-city text-2xl"></i>
                 </div>
@@ -281,7 +542,7 @@
                 </ul>
               </article>
 
-              <article class="rounded-3xl border border-white/80 bg-white/96 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <article class="rounded-3xl border border-white/80 bg-[rgba(255,255,255,0.96)] p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
                 <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-600 text-white">
                   <i class="fa-solid fa-wind text-2xl"></i>
                 </div>
@@ -294,7 +555,7 @@
                 </ul>
               </article>
 
-              <article class="rounded-3xl border border-white/80 bg-white/96 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <article class="rounded-3xl border border-white/80 bg-[rgba(255,255,255,0.96)] p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
                 <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-900 text-white">
                   <i class="fa-solid fa-fan text-2xl"></i>
                 </div>
@@ -306,7 +567,7 @@
                 </ul>
               </article>
 
-              <article class="rounded-3xl border border-white/80 bg-white/96 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <article class="rounded-3xl border border-white/80 bg-[rgba(255,255,255,0.96)] p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-soft">
                 <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-600 text-white">
                   <i class="fa-solid fa-screwdriver-wrench text-2xl"></i>
                 </div>
@@ -323,7 +584,7 @@
         </section>
       </main>
 
-      <footer class="bg-blue-950/96 text-blue-100 backdrop-blur-md">
+      <footer class="bg-[rgba(23,37,84,0.96)] text-blue-100 backdrop-blur-md">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8">
           <div>
             <div class="flex items-center gap-4">
@@ -334,21 +595,21 @@
                   class="max-h-full w-auto"
                 />
               </span>
-              <p class="text-xs font-bold uppercase tracking-[0.18em] text-red-500 sm:text-sm sm:tracking-[0.3em]">Scissortail Comfort Solutions LLC</p>
+              <p class="min-w-0 break-words text-xs font-bold uppercase tracking-[0.18em] text-red-500 sm:text-sm sm:tracking-[0.3em]">Scissortail Comfort Solutions LLC</p>
             </div>
             <h2 class="mt-3 text-3xl font-extrabold text-white">Reliable HVAC care for homes and businesses.</h2>
             <p class="mt-4 max-w-2xl text-base leading-7 text-blue-50">
               Professional support for comfort, air quality, system performance, and emergency HVAC needs across Oklahoma.
             </p>
           </div>
-          <div class="grid gap-8 sm:grid-cols-2">
-            <div>
+          <div class="grid gap-8 lg:grid-cols-2">
+            <div class="min-w-0">
               <h3 class="text-lg font-bold text-white">Contact</h3>
               <div class="mt-4 space-y-3 text-base">
-                <a href="mailto:terry@scissortailsolutions.com" class="block rounded-xl py-2.5 break-all transition hover:bg-white/5 hover:text-white sm:break-normal">
+                <a href="mailto:terry@scissortailsolutions.com" class="block max-w-full rounded-xl py-2.5 break-all text-blue-50 transition hover:bg-white/5 hover:text-white">
                   terry@scissortailsolutions.com
                 </a>
-                <a href="mailto:scissortailcomfortsolutions@gmail.com" class="block rounded-xl py-2.5 break-all transition hover:bg-white/5 hover:text-white sm:break-normal">
+                <a href="mailto:scissortailcomfortsolutions@gmail.com" class="block max-w-full rounded-xl py-2.5 break-all text-blue-50 transition hover:bg-white/5 hover:text-white">
                   scissortailcomfortsolutions@gmail.com
                 </a>
                 <a href="tel:+14056659110" class="block rounded-xl py-2.5 font-semibold text-white transition hover:bg-white/5 hover:text-red-400">
@@ -356,26 +617,26 @@
                 </a>
               </div>
             </div>
-            <div>
+            <div class="min-w-0">
               <h3 class="text-lg font-bold text-white">Follow Us</h3>
-              <div class="mt-4 flex flex-wrap gap-3">
+              <div class="mt-4 flex flex-col gap-3">
                 <a
                   href="#"
-                  class="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold transition hover:border-red-400 hover:text-white"
+                  class="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold transition hover:border-red-400 hover:text-white"
                 >
                   <i class="fa-brands fa-facebook-f"></i>
                   Facebook
                 </a>
                 <a
                   href="#"
-                  class="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold transition hover:border-red-400 hover:text-white"
+                  class="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold transition hover:border-red-400 hover:text-white"
                 >
                   <i class="fa-brands fa-instagram"></i>
                   Instagram
                 </a>
                 <a
                   href="#"
-                  class="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold transition hover:border-red-400 hover:text-white"
+                  class="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold transition hover:border-red-400 hover:text-white"
                 >
                   <i class="fa-brands fa-tiktok"></i>
                   TikTok
@@ -386,7 +647,7 @@
         </div>
         <div class="border-t border-white/10">
           <div class="mx-auto max-w-7xl px-4 py-4 text-sm text-blue-100/80 sm:px-6 lg:px-8">
-            Copyright ©️ 2024 Scissortail Comfort Solutions LLC.
+            Copyright ©️ 2026 Scissortail Comfort Solutions LLC.
           </div>
         </div>
       </footer>
@@ -417,5 +678,102 @@
         </div>
       </nav>
     </div>
+
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuPanel = document.getElementById("mobile-menu-panel");
+      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+      const mobileMenuClose = document.getElementById("mobile-menu-close");
+      const mobileMenuBackdrop = document.getElementById("mobile-menu-backdrop");
+      const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll("a[href]") : [];
+      const estimateForm = document.getElementById("estimate-form");
+      const estimateFormStatus = document.getElementById("estimate-form-status");
+
+      if (mobileMenu && mobileMenuPanel && mobileMenuToggle && mobileMenuClose && mobileMenuBackdrop) {
+        let isMobileMenuOpen = false;
+
+        const setMobileMenuState = (open) => {
+          isMobileMenuOpen = open;
+          mobileMenuToggle.setAttribute("aria-expanded", String(open));
+          mobileMenu.setAttribute("aria-hidden", String(!open));
+          document.body.classList.toggle("overflow-hidden", open);
+
+          if (open) {
+            mobileMenu.classList.remove("hidden");
+            requestAnimationFrame(() => {
+              mobileMenuBackdrop.classList.remove("opacity-0");
+              mobileMenuBackdrop.classList.add("opacity-100");
+              mobileMenuPanel.classList.remove("-translate-x-full");
+              mobileMenuPanel.classList.add("translate-x-0");
+            });
+            return;
+          }
+
+          mobileMenuBackdrop.classList.remove("opacity-100");
+          mobileMenuBackdrop.classList.add("opacity-0");
+          mobileMenuPanel.classList.remove("translate-x-0");
+          mobileMenuPanel.classList.add("-translate-x-full");
+
+          window.setTimeout(() => {
+            if (!isMobileMenuOpen) {
+              mobileMenu.classList.add("hidden");
+            }
+          }, 300);
+        };
+
+        mobileMenuToggle.addEventListener("click", () => setMobileMenuState(true));
+        mobileMenuClose.addEventListener("click", () => setMobileMenuState(false));
+        mobileMenuBackdrop.addEventListener("click", () => setMobileMenuState(false));
+
+        mobileMenuLinks.forEach((link) => {
+          link.addEventListener("click", () => setMobileMenuState(false));
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && isMobileMenuOpen) {
+            setMobileMenuState(false);
+          }
+        });
+      }
+
+      if (estimateForm && estimateFormStatus) {
+        estimateForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          if (!estimateForm.reportValidity()) {
+            return;
+          }
+
+          const formData = new FormData(estimateForm);
+          const firstName = String(formData.get("firstName") || "").trim();
+          const lastName = String(formData.get("lastName") || "").trim();
+          const phone = String(formData.get("phone") || "").trim();
+          const email = String(formData.get("email") || "").trim();
+          const address = String(formData.get("address") || "").trim();
+          const newCustomer = String(formData.get("newCustomer") || "").trim();
+          const message = String(formData.get("message") || "").trim();
+          const fullName = [firstName, lastName].filter(Boolean).join(" ");
+          const subject = `Estimate request from ${fullName || "website visitor"}`;
+          const body = [
+            "New website estimate request",
+            "",
+            `First Name: ${firstName}`,
+            `Last Name: ${lastName}`,
+            `Phone: ${phone}`,
+            `Email: ${email}`,
+            `Address: ${address || "Not provided"}`,
+            `New Customer: ${newCustomer}`,
+            "",
+            "How can we help?",
+            message,
+          ].join("\n");
+          const mailtoUrl = `mailto:terry@scissortailsolutions.com?cc=${encodeURIComponent("scissortailcomfortsolutions@gmail.com")}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+          estimateFormStatus.textContent = "Opening your email app with the request addressed to Scissortail Comfort Solutions.";
+          estimateFormStatus.classList.remove("hidden");
+          window.location.href = mailtoUrl;
+        });
+      }
+    </script>
   </body>
 </html>
