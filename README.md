@@ -60,4 +60,4 @@ git commit -m "Describe the change"
 git push origin main
 ```
 
-Si GitHub Pages esta configurado sobre la rama `main`, cada `push` a `origin/main` inicia el despliegue automaticamente. El cambio suele verse en unos segundos o pocos minutos. Si el repositorio usa GitHub Actions para Pages, el estado del despliegue se puede revisar en la pestaña `Actions` del repositorio.
+GitHub Pages esta configurado sobre la rama `main`, cada `push` a `origin/main` inicia el despliegue automaticamente. El cambio suele verse en unos segundos o pocos minutos. Si el repositorio usa GitHub Actions para Pages, el estado del despliegue se puede revisar en la pestaña `Actions` del repositorio.
