@@ -2,7 +2,7 @@
 
 Sitio web estatico para Scissortail Comfort Solutions LLC, publicado con GitHub Pages en el dominio personalizado `scissortailsolutions.com`.
 
-Ultima modificacion: 25 de abril de 2026.
+Ultima modificacion: 28 de abril de 2026.
 
 ## Tecnologias
 
@@ -13,10 +13,13 @@ Ultima modificacion: 25 de abril de 2026.
 - JavaScript vanilla dentro de `index.html` para el menu movil.
 - Assets locales en `assets/`, incluyendo logos SVG y la imagen de fondo.
 - Formulario embebido de LeadConnector/GoHighLevel mediante iframe externo.
+- Widget de Live Chat de LeadConnector cargado por script externo.
 
 ## Estructura
 
-- `index.html`: pagina principal completa, estilos, contenido, navegacion, formulario embebido y scripts.
+- `index.html`: pagina principal completa, estilos, contenido, navegacion, formulario embebido, enlaces legales y scripts.
+- `terms.html`: pagina de Terminos y Condiciones.
+- `privacy.html`: pagina de Politica de Privacidad.
 - `assets/`: imagenes y logos usados por el sitio.
 - `CNAME`: dominio personalizado usado por GitHub Pages.
 - `.nojekyll`: evita el procesamiento Jekyll en GitHub Pages.
@@ -40,6 +43,18 @@ Tambien usa el script externo de LeadConnector al final de `index.html`:
 
 ```html
 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+```
+
+## Live Chat
+
+El widget de chat se carga al final de `index.html`, `terms.html` y `privacy.html` con:
+
+```html
+<script
+  src="https://widgets.leadconnectorhq.com/loader.js"
+  data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+  data-widget-id="69ed0852bd8fe83e24c4cf51"
+></script>
 ```
 
 El sitio solo muestra el iframe. El envio, campos, validaciones y destino de los datos se gestionan desde LeadConnector/GoHighLevel, no desde este repositorio. Para cambiar preguntas, emails de destino, automatizaciones o estilos internos del formulario, hay que editar el formulario en LeadConnector/GoHighLevel. Desde este sitio solo se controla el espacio donde se inserta el iframe, su ancho, alto y posicion dentro de la pagina.

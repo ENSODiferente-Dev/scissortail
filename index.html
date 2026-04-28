@@ -41,6 +41,18 @@
       body {
         font-family: "Barlow", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
+
+      chat-widget,
+      div[data-chat-widget] {
+        position: fixed !important;
+        top: auto !important;
+        right: 16px !important;
+        bottom: 16px !important;
+        left: auto !important;
+        inset: auto 16px 16px auto !important;
+        transform: none !important;
+        z-index: 2147483647 !important;
+      }
     </style>
     <link
       rel="stylesheet"
@@ -161,6 +173,14 @@
               <span>Free Estimate</span>
               <i class="fa-solid fa-chevron-right text-sm text-red-400"></i>
             </a>
+            <a href="./terms.html" class="flex items-center justify-between border-b border-white/10 px-6 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-blue-50 transition hover:bg-white/[0.05] hover:text-white">
+              <span>Terms</span>
+              <i class="fa-solid fa-chevron-right text-sm text-red-400"></i>
+            </a>
+            <a href="./privacy.html" class="flex items-center justify-between border-b border-white/10 px-6 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-blue-50 transition hover:bg-white/[0.05] hover:text-white">
+              <span>Privacy</span>
+              <i class="fa-solid fa-chevron-right text-sm text-red-400"></i>
+            </a>
             <a href="tel:+14056659110" class="flex items-center justify-between border-b border-white/10 px-6 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-blue-50 transition hover:bg-white/[0.05] hover:text-white">
               <span>Emergency Service</span>
               <i class="fa-solid fa-chevron-right text-sm text-red-400"></i>
@@ -254,12 +274,12 @@
                 </p>
               </div>
 
-              <div class="mt-8 space-y-4">
+              <div class="mt-8 h-[820px] w-full">
                 <iframe
                   src="https://api.leadconnectorhq.com/widget/form/cxpaHUVp0MW1FFRVpPaJ"
-                  style="width:100%;height:1030px;border:none;background:transparent"
+                  style="width:100%;height:100%;border:none;border-radius:20px"
                   id="inline-cxpaHUVp0MW1FFRVpPaJ"
-                  data-layout='{"id":"INLINE"}'
+                  data-layout="{'id':'INLINE'}"
                   data-trigger-type="alwaysShow"
                   data-trigger-value=""
                   data-activation-type="alwaysActivated"
@@ -267,12 +287,31 @@
                   data-deactivation-type="neverDeactivate"
                   data-deactivation-value=""
                   data-form-name="Contact Us"
-                  data-height="1030"
+                  data-height="820"
                   data-layout-iframe-id="inline-cxpaHUVp0MW1FFRVpPaJ"
                   data-form-id="cxpaHUVp0MW1FFRVpPaJ"
                   title="Contact Us"
-                  class="block w-full"
                 ></iframe>
+              </div>
+              <div class="mt-6 rounded-2xl border border-white/20 bg-slate-950/30 p-4 sm:p-5">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-red-300">Legal</p>
+                <p class="mt-2 text-sm leading-6 text-blue-50 sm:text-base">
+                  By submitting this form, you agree to our Terms &amp; Conditions and Privacy Policy.
+                </p>
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <a
+                    href="./terms.html"
+                    class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-red-400 hover:bg-white/10"
+                  >
+                    Terms &amp; Conditions
+                  </a>
+                  <a
+                    href="./privacy.html"
+                    class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-red-400 hover:bg-white/10"
+                  >
+                    Privacy Policy
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -639,5 +678,56 @@
 
     </script>
     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+    <script
+      src="https://widgets.leadconnectorhq.com/loader.js"
+      data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+      data-widget-id="69ed0852bd8fe83e24c4cf51"
+    ></script>
+    <script>
+      const forceChatBottomRight = () => {
+        const chatWidgets = document.querySelectorAll("chat-widget");
+        const chatContainers = document.querySelectorAll("div[data-chat-widget]");
+        if (!chatWidgets.length && !chatContainers.length) return;
+
+        chatWidgets.forEach((chatWidget) => {
+          chatWidget.setAttribute("position", "bottom-right");
+          try {
+            chatWidget.position = "bottom-right";
+          } catch (_) {}
+
+          chatWidget.style.position = "fixed";
+          chatWidget.style.top = "auto";
+          chatWidget.style.right = "16px";
+          chatWidget.style.bottom = "16px";
+          chatWidget.style.left = "auto";
+          chatWidget.style.inset = "auto 16px 16px auto";
+          chatWidget.style.transform = "none";
+          chatWidget.style.zIndex = "2147483647";
+        });
+
+        chatContainers.forEach((chatContainer) => {
+          chatContainer.style.position = "fixed";
+          chatContainer.style.top = "auto";
+          chatContainer.style.right = "16px";
+          chatContainer.style.bottom = "16px";
+          chatContainer.style.left = "auto";
+          chatContainer.style.inset = "auto 16px 16px auto";
+          chatContainer.style.transform = "none";
+          chatContainer.style.zIndex = "2147483647";
+        });
+      };
+
+      forceChatBottomRight();
+      window.addEventListener("load", forceChatBottomRight);
+      new MutationObserver(forceChatBottomRight).observe(document.body, { childList: true, subtree: true });
+      let chatPositionTries = 0;
+      const chatPositionInterval = window.setInterval(() => {
+        forceChatBottomRight();
+        chatPositionTries += 1;
+        if (chatPositionTries >= 40) {
+          window.clearInterval(chatPositionInterval);
+        }
+      }, 500);
+    </script>
   </body>
 </html>
