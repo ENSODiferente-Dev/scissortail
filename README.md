@@ -1,78 +1,39 @@
-# Scissortail Comfort Solutions
+# Scissortail React App (Prototype)
 
-Sitio web estatico para Scissortail Comfort Solutions LLC, publicado con GitHub Pages en el dominio personalizado `scissortailsolutions.com`.
+Prototype React + Vite para migrar el sitio estatico de Scissortail y validar que el embed de LeadConnector funciona en GitHub Pages.
 
-Ultima modificacion: 28 de abril de 2026.
+## Incluye
 
-## Tecnologias
+- React + Vite.
+- Rutas SPA con `HashRouter`:
+  - `/#/`
+  - `/#/terms`
+  - `/#/privacy`
+- Formulario de Free Estimate (iframe original).
+- Script externo de formulario de LeadConnector.
+- Widget de live chat de LeadConnector cargado una sola vez.
 
-- HTML estatico en `index.html`.
-- Tailwind CSS cargado por CDN para estilos utilitarios.
-- Google Fonts con la familia `Barlow`.
-- Font Awesome por CDN para iconos.
-- JavaScript vanilla dentro de `index.html` para el menu movil.
-- Assets locales en `assets/`, incluyendo logos SVG y la imagen de fondo.
-- Formulario embebido de LeadConnector/GoHighLevel mediante iframe externo.
-- Widget de Live Chat de LeadConnector cargado por script externo.
-
-## Estructura
-
-- `index.html`: pagina principal completa, estilos, contenido, navegacion, formulario embebido, enlaces legales y scripts.
-- `terms.html`: pagina de Terminos y Condiciones.
-- `privacy.html`: pagina de Politica de Privacidad.
-- `assets/`: imagenes y logos usados por el sitio.
-- `CNAME`: dominio personalizado usado por GitHub Pages.
-- `.nojekyll`: evita el procesamiento Jekyll en GitHub Pages.
-
-## Formulario embebido
-
-El formulario de "Free Estimate" esta en `index.html`, dentro de la seccion con `id="estimate"`.
-
-El formulario se carga con este iframe:
-
-```html
-<iframe
-  src="https://api.leadconnectorhq.com/widget/form/cxpaHUVp0MW1FFRVpPaJ"
-  id="inline-cxpaHUVp0MW1FFRVpPaJ"
-  data-form-id="cxpaHUVp0MW1FFRVpPaJ"
-  title="Contact Us"
-></iframe>
-```
-
-Tambien usa el script externo de LeadConnector al final de `index.html`:
-
-```html
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>
-```
-
-## Live Chat
-
-El widget de chat se carga al final de `index.html`, `terms.html` y `privacy.html` con:
-
-```html
-<script
-  src="https://widgets.leadconnectorhq.com/loader.js"
-  data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-  data-widget-id="69ed0852bd8fe83e24c4cf51"
-></script>
-```
-
-El sitio solo muestra el iframe. El envio, campos, validaciones y destino de los datos se gestionan desde LeadConnector/GoHighLevel, no desde este repositorio. Para cambiar preguntas, emails de destino, automatizaciones o estilos internos del formulario, hay que editar el formulario en LeadConnector/GoHighLevel. Desde este sitio solo se controla el espacio donde se inserta el iframe, su ancho, alto y posicion dentro de la pagina.
-
-## Despliegue
-
-El sitio se despliega con GitHub Pages desde el repositorio:
-
-```text
-https://github.com/ENSODiferente-Dev/scissortail.git
-```
-
-Flujo habitual de despliegue:
+## Ejecutar local
 
 ```bash
-git add .
-git commit -m "Describe the change"
-git push origin main
+npm install
+npm run dev
 ```
 
-GitHub Pages esta configurado sobre la rama `main`, cada `push` a `origin/main` inicia el despliegue automaticamente. El cambio suele verse en unos segundos o pocos minutos. Si el repositorio usa GitHub Actions para Pages, el estado del despliegue se puede revisar en la pestaña `Actions` del repositorio.
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Base path para Pages
+
+`vite.config.js` usa `VITE_BASE_PATH`.
+
+- Por defecto: `/`
+- Si publicas como project page (`usuario.github.io/repositorio`):
+
+```bash
+VITE_BASE_PATH=/scissortail/ npm run build
+```
