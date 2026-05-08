@@ -27,6 +27,22 @@ npm run build
 npm run preview
 ```
 
+## Deploy a Produccion (GitHub Pages)
+
+Este proyecto se despliega con GitHub Actions (no se sube `dist` al repo).
+
+1. Verifica que `CNAME` tenga el dominio correcto.
+2. Haz commit y push a `main`:
+
+```bash
+git add .
+git commit -m "release: production update"
+git push origin main
+```
+
+3. En GitHub, revisa `Actions` y espera que el workflow termine en verde.
+4. Abre el dominio en produccion y haz hard refresh (`Cmd+Shift+R`) para validar cambios.
+
 ## Base path para Pages
 
 `vite.config.js` usa `VITE_BASE_PATH`.
