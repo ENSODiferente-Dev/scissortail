@@ -203,9 +203,9 @@ export default function ScissortailHero() {
           </div>
 
           <div className="flex items-center gap-3 sm:gap-4">
-            <a href="tel:+14056659110" className="hidden text-right sm:block">
+            <a href="tel:+14056555188" className="hidden text-right sm:block">
               <span className="block text-xs font-semibold uppercase tracking-[0.25em] text-blue-200">Call Anytime</span>
-              <span className="text-lg font-bold text-white">+1 (405) 665 9110</span>
+              <span className="text-lg font-bold text-white">+1 (405) 655 5188</span>
             </a>
 
             <a
@@ -272,7 +272,7 @@ export default function ScissortailHero() {
             transition={{ duration: 0.6, delay: 0.9 }}
           >
             <a
-              href="tel:+14056659110"
+              href="tel:+14056555188"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-600 px-5 py-4 text-center text-base font-bold text-white shadow-[0_20px_45px_rgba(15,23,42,0.16)] transition hover:bg-red-500 sm:w-auto"
             >
               <PhoneCall className="h-5 w-5 shrink-0" aria-hidden="true" />
